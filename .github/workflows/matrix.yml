@@ -6,6 +6,8 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.10", "3.11", "3.12"]
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}    
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -16,4 +18,4 @@ jobs:
       - name: Print Python Version
         run: |
           python --version 
-          echo "Testing on Python ${{ matrix.python-version }}"     
+          echo "Testing on Python ${{ matrix.python-version }} on ${{ matrix.os }}"     
