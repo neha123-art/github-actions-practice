@@ -11,7 +11,8 @@ jobs:
       - name: Print Date and Time
         run: date
       - name: Print Branch name
-        run: echo "Branch is: ${{ github.ref_name }}"
+        run: |
+          echo "Branch is: ${{ github.ref_name }}"
       - name: List Files in Repo
         run: ls -lrth
       - name: Print OS info
