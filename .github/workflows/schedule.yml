@@ -1,0 +1,14 @@
+name: Scheduled Workflow
+
+on:
+  schedule:
+     - cron: '0 0 * * *'
+jobs:
+  nightly-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Print PR Branch
+        run: |
+          echo "Scheduled run at: $(date)"
