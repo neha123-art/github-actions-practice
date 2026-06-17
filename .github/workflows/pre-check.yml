@@ -7,5 +7,5 @@ jobs:
     pr-check:     
       runs-on: ubuntu-latest
       steps:
-       - name: Checkout Code                                                                                                   uses: actions/checkout@v4 
-       - name: Print PR Branch                                                                                                 run: |                                                                                                                   echo "PR check running for branch: ${{ github.head_ref }}"     
+         - name: checkout Code                                                                                                   uses: actions/checkout@v4 
+         - name: Print PR Branch                                                                                                 run: |                                                                                                                   echo "PR check running for branch: ${{ github.head_ref }}"     
