@@ -17,5 +17,7 @@ jobs:
         run: ls -lrth
       - name: Print OS info
         run: uname -a
+      - name: Intentional Fail
+        run: exit 1   
 
               
