@@ -18,6 +18,6 @@ jobs:
       - name: Print OS info
         run: uname -a
       - name: Intentional Fail
-        run: exit 1   
+        run: exit 0   
 
               
