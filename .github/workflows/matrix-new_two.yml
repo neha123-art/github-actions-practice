@@ -1,0 +1,27 @@
+name: Matrix Build Workflow 
+on: push
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+        os: [ubuntu-latest, windows-latest]
+        exclude:
+            - os: windows-latest
+              python-version: "3.10"
+    runs-on: ${{ matrix.os }}     
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Print Python Version
+        run: |
+          python --version 
+           echo "Testing on Python ${{ matrix.python-version }} on ${{ matrix.os }}"
+      - name: Intentional Fail on 3.11 Ubuntu   
+        if: matrix.python-version == '3.11' && matrix.os == 'ubuntu-latest'
+        run: exit 1
