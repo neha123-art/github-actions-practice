@@ -1,0 +1,28 @@
+name: Multi OS Runners
+on: push
+jobs:
+  linux-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Linux Info
+        run: |
+          echo "OS: ${{ runner.os }}"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
+  windows-job:
+    runs-on: windows-latest
+    steps:
+      - name: Print Windows Info
+        run: |
+          echo "OS: ${{ runner.os }}"
+          echo "Hostname: $env:COMPUTERNAME"
+          echo "User: $env:USERNAME"
+          
+  mac-job:
+    runs-on: macos-latest
+    steps:
+      - name: Print Mac Info
+        run: |
+          echo "OS: ${{ runner.os }}"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
