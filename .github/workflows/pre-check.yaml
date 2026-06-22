@@ -1,0 +1,13 @@
+name: PR check 
+on:
+ pull_request:
+     branches:
+       - main
+     types: [opened, synchronize] 
+
+jobs:
+  check:
+    runs-on:
+      steps:
+        - name: Print branch name 
+          run: echo "PR check running for branch: ${{ github.head_ref }}"  
